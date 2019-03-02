@@ -1,0 +1,28 @@
+void setup(){
+   pinMode(0, OUTPUT);//red
+   pinMode(1, OUTPUT);//blue
+   pinMode(4, OUTPUT);//green
+}
+
+void loop(){
+
+  int analog = analogRead(A1);
+  byte sicaklik = (analog * 0.4887585532746823);
+  if(sicaklik<0 and sicaklik<20){
+        digitalWrite(0,1);
+        digitalWrite(1,1);
+        digitalWrite(4,1);
+    }else if(sicaklik>20 and sicaklik<40){
+        digitalWrite(0,0);
+        digitalWrite(1,1);
+        digitalWrite(4,0);
+      }else if(sicaklik>40 and sicaklik<80){
+        digitalWrite(0,0);
+        digitalWrite(1,0);
+        digitalWrite(4,1);
+      }else if(sicaklik>80){
+        digitalWrite(0,1);
+        digitalWrite(1,0);
+        digitalWrite(4,0);
+      }
+ }
